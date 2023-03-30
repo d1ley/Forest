@@ -1,6 +1,6 @@
 #ifndef TREE_H
 #define TREE_H
-
+using namespace std;
 #include <iostream>
 
 class Tree {
@@ -8,11 +8,11 @@ private:
     int** tab;
     int height;
     char symbol;
-    std::string color;
+    int color;
     int x, y;
 
 public:
-    Tree(int h, char s, std::string c, int x, int y);
+    Tree(int h, char s, int c, int x, int y);
     int getHeight();
     int** getTab();
     int getX();

@@ -1,6 +1,7 @@
 #include "Tree.h"
+#include "windows.h"
 
-Tree::Tree(int h, char s, std::string c, int x, int y) : height(h), symbol(s), color(c), x(x), y(y) {
+Tree::Tree(int h, char s, int c, int x, int y) : height(h), symbol(s), color(c), x(x), y(y) {
     tab = new int* [height];
     for (int i = 0; i < height; i++) {
         tab[i] = new int[2 * height - 1];
@@ -32,6 +33,9 @@ int Tree::getY() {
 }
 
 void Tree::draw() {
+    HANDLE console_color;
+    console_color = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(console_color, color); 
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < 2 * height - 1; j++) {
             if (tab[i][j])
@@ -41,12 +45,12 @@ void Tree::draw() {
         }
         std::cout << '\n';
     }
+    SetConsoleTextAttribute(console_color, 7); 
 }
 
 Tree::~Tree()
 {
-    int j;
-    for (j = 0; j < height; j++)
-        delete tab[j];
-    delete tab;
+    for (int i = 0; i < height; i++)
+        delete tab[i];
+    delete[] tab;
 }
