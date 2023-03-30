@@ -1,5 +1,4 @@
-﻿//Mam jakiś problem z pamięcią w Tree.cpp, przez co program się sypie. 
-#include "Forest.h"
+﻿#include "Forest.h"
 #include <windows.h> 
 
 int main() {

@@ -1,4 +1,4 @@
-﻿#include "Tree.h"
+#include "Tree.h"
 #include "windows.h"
 
 Tree::Tree(int h, char s, int c, int x, int y) : height(h), symbol(s), color(c), x(x), y(y) {
@@ -51,6 +51,6 @@ void Tree::draw() {
 Tree::~Tree()
 {
     for (int i = 0; i < height; i++)
-        delete tab[i];   // W tym miejscu mam błąd i nie wiem jak to poprawić 
+        delete tab[i];
     delete[] tab;
 }
